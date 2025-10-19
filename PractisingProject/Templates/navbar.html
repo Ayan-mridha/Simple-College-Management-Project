@@ -1,0 +1,7 @@
+<div class="navbar-table">
+  <ul>
+    <li><a href="{% url 'mainpage' %}" class="{% if request.path == '/' %}active{% endif %}">Home</a></li>
+    <li><a href="{% url 'studentPage' %}" class="{% if request.path == '/students/' %}active{% endif %}">Students Informations</a></li>
+    <li><a href="{% url 'teacherPage' %}" class="{% if request.path == '/teachers/' %}active{% endif %}">Teachers Informations</a></li>
+  </ul>
+</div>

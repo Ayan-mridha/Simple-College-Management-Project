@@ -1,0 +1,190 @@
+{% include "Base.html" %}
+
+{% block blockname %}
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student & Teacher Table</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #E6EEFF; /* হালকা নীল রঙ (তোমার ছবির মতো) */
+      color: #333;
+      padding: 40px 0;
+    }
+
+
+    .card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      background-color: #ffffff;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+    }
+
+    h3, h4 {
+      text-align: center;
+      color: #2e7d32;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+
+    /* ===== Table Styling (Exactly like Code 2) ===== */
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      background-color: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    th, td {
+      text-align: center;
+      padding: 12px 18px;
+    }
+
+    thead th {
+      background-color: #81c784;
+      color: white;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 2px solid #66bb6a;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #f9fbe7;
+    }
+
+    tbody tr:nth-child(odd) {
+      background-color: #ffffff;
+    }
+
+    tbody tr:hover {
+      background-color: #c8e6c9;
+      transition: background-color 0.3s ease;
+    }
+
+    td {
+      border-bottom: 1px solid #ddd;
+    }
+
+    .form-select, .btn {
+      border-radius: 8px;
+    }
+
+    .btn-success {
+      background-color: #66bb6a;
+      border: none;
+      transition: 0.3s ease;
+    }
+
+    .btn-success:hover {
+      background-color: #388e3c;
+    }
+
+    .text-danger {
+      color: #e53935 !important;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container py-5">
+
+    <!-- Department Selection -->
+    <div class="card shadow-sm mb-4 p-3">
+      <div class="card-body">
+        <h4 class="mb-3 text-primary">Select Department</h4>
+        <form action="" method="get" class="d-flex gap-2 justify-content-center">
+          <select name="Dept_select" id="SelectingDepertment" class="form-select w-50">
+            <option value="">-- Select Your Department --</option>
+            {% for i in dept_selection %}
+              <option value="{{i}}">{{i}}</option>
+            {% endfor %}
+          </select>
+          <button type="submit" class="btn btn-success px-4">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Student Table -->
+    <div class="card shadow-sm mb-4 p-3">
+      <div class="card-body">
+        <h3 class="text-info mb-4">Student Table</h3>
+        <table class="align-middle text-center">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Department</th>
+              <th>Passing Year</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for i in students %}
+            <tr>
+              <td>{{i.Name}}</td>
+              <td>{{i.Depertment}}</td>
+              <td>{{i.Passing_Year}}</td>
+            </tr>
+            {% empty %}
+            <tr>
+              <td colspan="3" class="text-danger">No student data found</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Teacher Table -->
+    <div class="card shadow-sm p-3">
+      <div class="card-body">
+        <h3 class="text-success mb-4">Teacher Table</h3>
+        <table class="align-middle text-center">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Department</th>
+              <th>Contact</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for t in teacherdata %}
+            <tr>
+              <td>{{t.Name}}</td>
+              <td>{{t.Depertment}}</td>
+              <td>{{t.Contact}}</td>
+            </tr>
+            {% empty %}
+            <tr>
+              <td colspan="3" class="text-danger">No teacher data found</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+{% endblock blockname %}
+  

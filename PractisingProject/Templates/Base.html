@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+/* ===== Body Styling ===== */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f2f4f7;
+  padding: 20px;
+}
+
+/* ===== Navbar Table Container ===== */
+.navbar-table {
+  display: table;
+  width: 90%;
+  max-width: 1000px;
+  margin: 20px auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background-color: #ffffff;
+}
+
+/* ===== Navbar Table Row ===== */
+.navbar-table ul {
+  display: table-row;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ===== Navbar Table Cells ===== */
+.navbar-table li {
+  display: table-cell;
+  text-align: center;
+}
+
+.navbar-table li a {
+  display: block;
+  padding: 14px 25px;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  background: linear-gradient(180deg, #4b6cb7, #182848);
+  transition: all 0.3s ease;
+  border-right: 1px solid rgba(255,255,255,0.3);
+}
+
+.navbar-table li:last-child a {
+  border-right: none;
+}
+
+/* ===== Hover Effect ===== */
+.navbar-table li a:hover {
+  background-color: #ffffff30; /* semi-transparent white */
+  color: #ffffff;
+}
+
+/* ===== Active Page Styling ===== */
+.navbar-table li a.active {
+  background-color: #ffffff; /* white background for active page */
+  color: #182848; /* dark text */
+  font-weight: 600;
+}
+
+/* ===== Responsive ===== */
+@media screen and (max-width: 600px) {
+  .navbar-table, .navbar-table ul, .navbar-table li {
+    display: block;
+    width: 100%;
+  }
+  .navbar-table li a {
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+  .navbar-table li:last-child a {
+    border-bottom: none;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar Table -->
+{% include 'navbar.html' %}
+
+<!-- Content -->
+{% block body %}
+{% endblock %}
+
+</body>
+</html>
